@@ -12,6 +12,7 @@ import { PublicKey, KeyType } from 'near-api-js/lib/utils/key_pair'
 import { WalletError } from '../utils/walletError'
 import { utils } from 'near-api-js'
 import { BN } from 'bn.js'
+import { showAlert } from '../utils/alerts'
 
 export const loadRecoveryMethods = createAction('LOAD_RECOVERY_METHODS',
     wallet.getRecoveryMethods.bind(wallet),
@@ -419,7 +420,7 @@ export const { addAccessKey, createAccountWithSeedPhrase, addAccessKeySeedPhrase
 export const { recoverAccountSeedPhrase } = createActions({
     RECOVER_ACCOUNT_SEED_PHRASE: [
         wallet.recoverAccountSeedPhrase.bind(wallet),
-        () => defaultCodesFor('account.recoverAccount')
+        () => showAlert()
     ],
 })
 
