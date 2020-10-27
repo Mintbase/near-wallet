@@ -275,7 +275,7 @@ export const {
     ],
     CHECK_NEW_ACCOUNT: [
         wallet.checkNewAccount.bind(wallet),
-        () => showAlert({ requestStatus: true })
+        () => showAlert({ localAlert: true })
     ],
     CREATE_NEW_ACCOUNT: [
         wallet.createNewAccount.bind(wallet),
