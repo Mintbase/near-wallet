@@ -12,7 +12,7 @@ import { PublicKey, KeyType } from 'near-api-js/lib/utils/key_pair'
 import { WalletError } from '../utils/walletError'
 import { utils } from 'near-api-js'
 import { BN } from 'bn.js'
-import { showAlert } from '../utils/alerts'
+import { showAlert, dispatchWithAlert } from '../utils/alerts'
 
 export const loadRecoveryMethods = createAction('LOAD_RECOVERY_METHODS',
     wallet.getRecoveryMethods.bind(wallet),
@@ -122,11 +122,10 @@ export const redirectToApp = (fallback) => (dispatch, getState) => {
 export const allowLogin = () => async (dispatch, getState) => {
     const { account } = getState()
     const { url } = account
-    await dispatch(addAccessKey(account.accountId, url.contract_id, url.public_key))
+    const { success_url, public_key, title } = url
 
-    const { success_url, public_key } = url
     if (success_url) {
-        dispatch(clearAlert())
+        await dispatchWithAlert(addAccessKey(account.accountId, url.contract_id, url.public_key), { onlyError: true })
         const availableKeys = await wallet.getAvailableKeys();
         const allKeys = availableKeys.map(key => key.toString());
         const parsedUrl = new URL(success_url)
@@ -135,6 +134,7 @@ export const allowLogin = () => async (dispatch, getState) => {
         parsedUrl.searchParams.set('all_keys', allKeys.join(','))
         window.location = parsedUrl.href
     } else {
+        await dispatchWithAlert(addAccessKey(account.accountId, url.contract_id, url.public_key))
         dispatch(redirectTo('/authorized-apps', { globalAlertPreventClear: true }))
     }
 }
