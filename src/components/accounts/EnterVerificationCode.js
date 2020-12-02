@@ -46,7 +46,7 @@ const EnterVerificationCode = ({
         useEmail = false;
     }
 
-    const invalidCode = requestStatus && requestStatus.messageCode === 'account.setupRecoveryMessage.error';
+    const invalidCode = requestStatus && requestStatus.messageCode === 'account.SETUP_RECOVERY_MESSAGE.error';
 
     return (
         <StyledContainer className='small-centered'>
