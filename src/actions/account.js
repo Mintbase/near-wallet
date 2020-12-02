@@ -255,7 +255,7 @@ export const {
     ],
     SETUP_RECOVERY_MESSAGE: [
         wallet.setupRecoveryMessage.bind(wallet),
-        () => defaultCodesFor('account.setupRecoveryMessage')
+        () => showAlert()
     ],
     SETUP_RECOVERY_MESSAGE_NEW_ACCOUNT: [
         wallet.setupRecoveryMessageNewAccount.bind(wallet),
