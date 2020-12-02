@@ -263,7 +263,7 @@ export const {
     ],
     DELETE_RECOVERY_METHOD: [
         wallet.deleteRecoveryMethod.bind(wallet),
-        () => defaultCodesFor('account.deleteRecoveryMethod')
+        () => showAlert()
     ],
     CHECK_NEAR_DROP_BALANCE: [
         wallet.checkNearDropBalance.bind(wallet),
