@@ -62,7 +62,7 @@ const loaderReducer = (state, { type, ready }) => {
 const globalAlertReducer = handleActions({
     // TODO: Reset state before action somehow. On navigate / start of other action?
     // TODO: Make this generic to avoid listing actions
-    [combineActions(addLedgerAccessKey, createAccountWithSeedPhrase)]: (state, { error, ready, payload, meta }) => ({
+    [combineActions(createAccountWithSeedPhrase)]: (state, { error, ready, payload, meta }) => ({
         ...state,
         globalAlert: ready ? {
             success: !error,
