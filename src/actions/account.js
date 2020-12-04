@@ -306,7 +306,7 @@ export const { getAccessKeys, removeAccessKey, addLedgerAccessKey, disableLedger
         wallet.addLedgerAccountId.bind(wallet),
         (accountId) => ({
             accountId,
-            ...defaultCodesFor('signInLedger.addLedgerAccountId')
+            ...showAlert()
         })
     ],
     SAVE_AND_SELECT_LEDGER_ACCOUNTS: [
