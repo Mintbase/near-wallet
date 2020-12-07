@@ -9,6 +9,7 @@ import { Translate } from 'react-localize-redux';
 import TwoFactorVerifyInput from './TwoFactorVerifyInput';
 import { WalletError } from '../../../utils/walletError'
 import { resendTwoFactor, get2faMethod } from '../../../actions/account';
+import { actionsPending } from '../../../utils/alerts'
 
 const Form = styled.form`
     display: flex;
@@ -24,7 +25,7 @@ const TwoFactorVerifyModal = ({ open, onClose }) => {
     const [resendCode, setResendCode] = useState();
     const dispatch = useDispatch();
     const account = useSelector(({ account }) => account);
-    const loading = account.actionsPending.includes('VERIFY_TWO_FACTOR');
+    const loading = actionsPending('VERIFY_TWO_FACTOR');
 
     useEffect(() => {
         let isMounted = true;
