@@ -8,7 +8,7 @@ import FormButton from '../../common/FormButton';
 import { Translate } from 'react-localize-redux';
 import TwoFactorVerifyInput from './TwoFactorVerifyInput';
 import { WalletError } from '../../../utils/walletError'
-import { clearAlert, resendTwoFactor, get2faMethod } from '../../../actions/account';
+import { resendTwoFactor, get2faMethod } from '../../../actions/account';
 
 const Form = styled.form`
     display: flex;
@@ -46,10 +46,6 @@ const TwoFactorVerifyModal = ({ open, onClose }) => {
 
     const handleChange = (code) => {
         setCode(code);
-
-        if (account.globalAlert) {
-            dispatch(clearAlert())
-        }
     }
 
     const handleResendCode = async () => {
