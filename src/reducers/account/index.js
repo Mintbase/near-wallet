@@ -173,7 +173,6 @@ const account = handleActions({
 export default reduceReducers(
     initialState,
     loaderReducer,
-    globalAlertReducer,
     requestResultReducer,
     requestResultClearReducer,
     recoverCodeReducer,
