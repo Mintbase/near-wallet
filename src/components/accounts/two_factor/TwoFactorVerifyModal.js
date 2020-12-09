@@ -62,7 +62,7 @@ const TwoFactorVerifyModal = ({ open, onClose }) => {
         }
     }
     
-    const handleCancelClose = () => onClose(false, new WalletError('Request was cancelled.', 'errors.twoFactor.userCancelled'))
+    const handleCancelClose = () => onClose(false, new WalletError('Request was cancelled.', 'alert.PROMPT_TWO_FACTOR.userCancelled'))
     
     return (
         <Modal
