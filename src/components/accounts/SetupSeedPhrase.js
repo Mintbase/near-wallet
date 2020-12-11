@@ -163,7 +163,7 @@ class SetupSeedPhrase extends Component {
                                             wordId={this.state.wordId}
                                             handleChangeWord={this.handleChangeWord}
                                             handleStartOver={this.handleStartOver}
-                                            formLoader={this.props.formLoader}
+                                            mainLoader={this.props.mainLoader}
                                             localAlert={this.state.localAlert}
                                             globalAlert={this.props.globalAlert}
                                         />
@@ -194,12 +194,13 @@ const mapDispatchToProps = {
     loadRecoveryMethods
 }
 
-const mapStateToProps = ({ account, recoveryMethods }, { match }) => ({
+const mapStateToProps = ({ account, recoveryMethods, status }, { match }) => ({
     ...account,
     verify: match.params.verify,
     accountId: match.params.accountId,
     activeAccountId: account.accountId,
-    recoveryMethods
+    recoveryMethods,
+    mainLoader: status.mainLoader
 })
 
 export const SetupSeedPhraseWithRouter = connect(mapStateToProps, mapDispatchToProps)(withRouter(SetupSeedPhrase))

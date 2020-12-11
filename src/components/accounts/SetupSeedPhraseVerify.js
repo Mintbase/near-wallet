@@ -45,7 +45,7 @@ const SetupSeedPhraseVerify = ({
     wordId,
     handleChangeWord,
     handleStartOver,
-    formLoader,
+    mainLoader,
     localAlert,
     globalAlert
 }) => (
@@ -70,7 +70,7 @@ const SetupSeedPhraseVerify = ({
             type='submit'
             color='blue'
             disabled={enterWord ? (globalAlert && globalAlert.success) : true}
-            sending={formLoader}
+            sending={mainLoader}
         >
             <Translate id='button.verify' />
         </FormButton>
