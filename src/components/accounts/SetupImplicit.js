@@ -162,7 +162,7 @@ class SetupImplicit extends Component {
                                 <FormButton
                                     onClick={this.handleContinue}
                                     color='green'
-                                    sending={this.props.formLoader}
+                                    sending={this.props.mainLoader}
                                 >
                                     <Translate id='button.claimAccount' />
                                 </FormButton>
@@ -181,11 +181,12 @@ class SetupImplicit extends Component {
     }
 }
 
-const mapStateToProps = ({ account }, { match: { params: { accountId, implicitAccountId, recoveryMethod } } }) => ({
+const mapStateToProps = ({ account, status }, { match: { params: { accountId, implicitAccountId, recoveryMethod } } }) => ({
     ...account,
     accountId,
     implicitAccountId,
     recoveryMethod,
+    mainLoader: status.mainLoader
 })
 
 export const SetupImplicitWithRouter = connect(mapStateToProps)(withRouter(SetupImplicit))
