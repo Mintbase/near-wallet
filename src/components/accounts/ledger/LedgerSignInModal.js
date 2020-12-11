@@ -156,10 +156,10 @@ const LedgerSignInModal = ({
     accountId, 
     handleChange, 
     checkAccountAvailable, 
-    requestStatus, 
+    localAlert, 
     setFormLoader, 
     formLoader, 
-    clearRequestStatus, 
+    clearLocalAlert, 
     stateAccountId, 
     loader,
     clearSignInWithLedgerModalState
@@ -211,17 +211,17 @@ const LedgerSignInModal = ({
                         formLoader={formLoader}
                         handleChange={handleChange}
                         checkAvailability={checkAccountAvailable}
-                        requestStatus={requestStatus}
+                        localAlert={localAlert}
                         autoFocus={true}
                         setFormLoader={setFormLoader}
-                        clearRequestStatus={clearRequestStatus}
+                        clearLocalAlert={clearLocalAlert}
                         stateAccountId={stateAccountId}
                     />
 
 
                     <FormButton
                         onClick={handleAdditionalAccountId}
-                        disabled={formLoader || !requestStatus?.success}
+                        disabled={formLoader || !localAlert?.success}
                         sending={loader}
                     >
                         <Translate id='button.confirm'/>
