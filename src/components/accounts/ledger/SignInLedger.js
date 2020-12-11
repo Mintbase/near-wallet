@@ -113,7 +113,7 @@ export function SignInLedger(props) {
                     localAlert={status.localAlert}
                     checkAccountAvailable={(accountId) => dispatch(checkAccountAvailable(accountId))}
                     setFormLoader={(state) => dispatch(setFormLoader(state))}
-                    formLoader={account.formLoader}
+                    mainLoader={status.mainLoader}
                     clearLocalAlert={() => dispatch(clear())}
                     stateAccountId={account.accountId}
                     loader={loader}
