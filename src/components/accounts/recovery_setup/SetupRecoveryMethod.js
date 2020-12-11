@@ -261,7 +261,7 @@ class SetupRecoveryMethod extends Component {
                     onGoBack={this.handleGoBack}
                     onResend={this.handleSendCode}
                     loading={formLoader}
-                    requestStatus={this.props.requestStatus}
+                    localAlert={this.props.localAlert}
                 />
             )
         }
@@ -280,12 +280,13 @@ const mapDispatchToProps = {
     checkIsNew
 }
 
-const mapStateToProps = ({ account, router, recoveryMethods }, { match }) => ({
+const mapStateToProps = ({ account, router, recoveryMethods, status }, { match }) => ({
     ...account,
     router,
     accountId: match.params.accountId,
     activeAccountId: account.accountId,
-    recoveryMethods
+    recoveryMethods,
+    localAlert: status.localAlert
 })
 
 export const SetupRecoveryMethodWithRouter = connect(mapStateToProps, mapDispatchToProps)(SetupRecoveryMethod);
