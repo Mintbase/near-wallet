@@ -65,7 +65,7 @@
         },
         "GET_LEDGER_ACCOUNT_IDS": {
             "success": "",
-            "error": "Public key access was rejected. No accounts were recovered.<br/>To continue, you must allow NEAR Wallet to view your public key. Please try again.",
+            "error": "Public key access was rejected. No accounts were recovered.<br/>To continue, you must allow NEAR Wallet to view your public key. Please try again."
         },
         "VERIFY_TWO_FACTOR": {
             "success": "Two Factor Authentication successfully setup!",
@@ -73,11 +73,11 @@
         },
         "CHECK_IS_NEW": {
             "success": "Congrats! ${accountId} is available.",
-            "error": "Account ID is taken. Try something else.",
+            "error": "Account ID is taken. Try something else."
         },
         "CREATE_NEW_ACCOUNT": {
             "success": "Congrats! ${accountId} is available.",
-            "error": "Account ID is taken. Try something else.",
+            "error": "Account ID is taken. Try something else."
         },
 
         "Deserialization": "",
