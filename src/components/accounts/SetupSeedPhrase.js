@@ -26,7 +26,7 @@ class SetupSeedPhrase extends Component {
         seedPhrase: '',
         enterWord: '',
         wordId: null,
-        requestStatus: null,
+        localAlert: null,
         successSnackbar: false
     }
 
@@ -50,7 +50,7 @@ class SetupSeedPhrase extends Component {
             publicKey,
             wordId,
             enterWord: '',
-            requestStatus: null,
+            localAlert: null,
             recoveryKeyPair
         }))
     }
@@ -62,7 +62,7 @@ class SetupSeedPhrase extends Component {
 
         this.setState((state) => ({
            [name]: value.trim().toLowerCase(),
-           requestStatus: null
+           localAlert: null
         }))
     }
 
@@ -88,7 +88,7 @@ class SetupSeedPhrase extends Component {
         const { seedPhrase, enterWord, wordId, recoveryKeyPair } = this.state
         if (enterWord !== seedPhrase.split(' ')[wordId]) {
             this.setState(() => ({
-                requestStatus: {
+                localAlert: {
                     success: false,
                     messageCode: 'account.verifySeedPhrase.error'
                 }
@@ -164,7 +164,7 @@ class SetupSeedPhrase extends Component {
                                             handleChangeWord={this.handleChangeWord}
                                             handleStartOver={this.handleStartOver}
                                             formLoader={this.props.formLoader}
-                                            requestStatus={this.state.requestStatus}
+                                            localAlert={this.state.localAlert}
                                             globalAlert={this.props.globalAlert}
                                         />
                                     </form>
