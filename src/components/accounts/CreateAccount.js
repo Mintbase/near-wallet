@@ -129,7 +129,7 @@ class CreateAccount extends Component {
 
     render() {
         const { loader, accountId, invalidNearDrop } = this.state
-        const { localAlert, formLoader, checkNewAccount, resetAccount, clear, setFormLoader } = this.props
+        const { localAlert, mainLoader, checkNewAccount, resetAccount, clear, setFormLoader } = this.props
         const useLocalAlert = accountId.length > 0 ? localAlert : undefined;
         
         if (!invalidNearDrop) {
@@ -140,7 +140,7 @@ class CreateAccount extends Component {
                         <h2><Translate id='createAccount.pageText'/></h2>
                         <h6><Translate id='createAccount.accountIdInput.title'/></h6>
                         <AccountFormAccountId
-                            formLoader={formLoader}
+                            mainLoader={mainLoader}
                             handleChange={this.handleChange}
                             type='create'
                             pattern={/[^a-zA-Z0-9_-]/}
@@ -193,6 +193,7 @@ const mapDispatchToProps = {
 const mapStateToProps = ({ account, status }, { match }) => ({
     ...account,
     localAlert: status.localAlert,
+    mainLoader: status.mainLoader,
     fundingContract: match.params.fundingContract,
     fundingKey: match.params.fundingKey,
     fundingAccountId: match.params.fundingAccountId,
