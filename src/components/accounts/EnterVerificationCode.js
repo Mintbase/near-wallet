@@ -36,7 +36,7 @@ const EnterVerificationCode = ({
     email,
     phoneNumber,
     loading,
-    requestStatus
+    localAlert
 }) => {
 
     const [code, setCode] = useState('');
@@ -46,7 +46,7 @@ const EnterVerificationCode = ({
         useEmail = false;
     }
 
-    const invalidCode = requestStatus && requestStatus.messageCode === 'account.SETUP_RECOVERY_MESSAGE.error';
+    const invalidCode = localAlert && localAlert.messageCode === 'account.SETUP_RECOVERY_MESSAGE.error';
 
     return (
         <StyledContainer className='small-centered'>
