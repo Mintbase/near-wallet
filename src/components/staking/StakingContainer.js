@@ -137,7 +137,8 @@ const StyledContainer = styled(Container)`
 
 export function StakingContainer({ history, match }) {
     const dispatch = useDispatch()
-    const { accountId, has2fa, formLoader, hasLockup } = useSelector(({ account }) => account);
+    const { accountId, has2fa, hasLockup } = useSelector(({ account }) => account);
+    const status = useSelector(({ status }) => status);
     const { hasLedger } = useSelector(({ ledger }) => ledger)
     
     const staking = useSelector(({ staking }) => staking)
@@ -193,7 +194,7 @@ export function StakingContainer({ history, match }) {
                                 accounts={stakingAccounts}
                                 activeAccount={currentAccount}
                                 accountId={accountId}
-                                loading={formLoader}
+                                loading={status.mainLoader}
                                 hasLockup={hasLockup}
                                 unableToCalcRewards={unableToCalcRewards}
                             />
@@ -218,7 +219,7 @@ export function StakingContainer({ history, match }) {
                                 {...props} 
                                 validator={validator}
                                 onWithdraw={handleWithDraw}
-                                loading={formLoader}
+                                loading={status.mainLoader}
                                 selectedValidator={selectedValidator}
                                 currentValidators={currentValidators}
                                 unableToCalcRewards={unableToCalcRewards}
@@ -235,7 +236,7 @@ export function StakingContainer({ history, match }) {
                                 handleStakingAction={handleStakingAction}
                                 availableBalance={totalUnstaked} 
                                 validator={validator}
-                                loading={formLoader}
+                                loading={status.mainLoader}
                                 hasLedger={hasLedger}
                                 has2fa={has2fa}
                                 stakeFromAccount={currentAccount.accountId === accountId}
@@ -252,7 +253,7 @@ export function StakingContainer({ history, match }) {
                                 handleStakingAction={handleStakingAction}
                                 availableBalance={totalUnstaked}
                                 validator={validator}
-                                loading={formLoader}
+                                loading={status.mainLoader}
                                 hasLedger={hasLedger}
                                 has2fa={has2fa}
                             />
