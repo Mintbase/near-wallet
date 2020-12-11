@@ -129,8 +129,8 @@ class CreateAccount extends Component {
 
     render() {
         const { loader, accountId, invalidNearDrop } = this.state
-        const { requestStatus, formLoader, checkNewAccount, resetAccount, clear, setFormLoader } = this.props
-        const useRequestStatus = accountId.length > 0 ? requestStatus : undefined;
+        const { localAlert, formLoader, checkNewAccount, resetAccount, clear, setFormLoader } = this.props
+        const useLocalAlert = accountId.length > 0 ? localAlert : undefined;
         
         if (!invalidNearDrop) {
             return (
@@ -145,16 +145,16 @@ class CreateAccount extends Component {
                             type='create'
                             pattern={/[^a-zA-Z0-9_-]/}
                             checkAvailability={checkNewAccount}
-                            requestStatus={useRequestStatus}
+                            localAlert={useLocalAlert}
                             accountId={accountId}
-                            clearRequestStatus={clear}
+                            clearLocalAlert={clear}
                             setFormLoader={setFormLoader}
                             defaultAccountId={resetAccount && resetAccount.accountIdNotConfirmed.split('.')[0]}
                         />
                         <AccountNote/>
                         <FormButton
                             type='submit'
-                            disabled={!(requestStatus && requestStatus.success)}
+                            disabled={!(localAlert && localAlert.success)}
                             sending={loader}
                         >
                             <Translate id='button.createAccountCapital'/>
@@ -192,7 +192,7 @@ const mapDispatchToProps = {
 
 const mapStateToProps = ({ account, status }, { match }) => ({
     ...account,
-    requestStatus: status.localAlert,
+    localAlert: status.localAlert,
     fundingContract: match.params.fundingContract,
     fundingKey: match.params.fundingKey,
     fundingAccountId: match.params.fundingAccountId,
