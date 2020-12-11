@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom'
 import { Responsive, Input } from 'semantic-ui-react'
 import { Translate } from 'react-localize-redux'
 
-import RequestStatusBox from '../common/RequestStatusBox'
+import LocalAlertBox from '../common/LocalAlertBox'
 import FormButton from '../common/FormButton'
 
 import styled from 'styled-components'
@@ -46,7 +46,7 @@ const SetupSeedPhraseVerify = ({
     handleChangeWord,
     handleStartOver,
     formLoader,
-    requestStatus,
+    localAlert,
     globalAlert
 }) => (
     <CustomDiv>
@@ -61,11 +61,11 @@ const SetupSeedPhraseVerify = ({
                     required
                     tabIndex='1'
                     pattern='[a-zA-Z ]*'
-                    className={requestStatus ? (requestStatus.success ? 'success' : 'problem') : ''}
+                    className={localAlert ? (localAlert.success ? 'success' : 'problem') : ''}
                 />
             )}
         </Translate>
-        <Responsive as={RequestStatusBox} requestStatus={requestStatus} />
+        <Responsive as={LocalAlertBox} localAlert={localAlert} />
         <FormButton
             type='submit'
             color='blue'
