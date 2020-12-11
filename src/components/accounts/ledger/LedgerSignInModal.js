@@ -158,7 +158,7 @@ const LedgerSignInModal = ({
     checkAccountAvailable, 
     localAlert, 
     setFormLoader, 
-    formLoader, 
+    mainLoader, 
     clearLocalAlert, 
     stateAccountId, 
     loader,
@@ -208,7 +208,7 @@ const LedgerSignInModal = ({
 
                     <h4><Translate id='enterAccountNameLedgerModal.one'/></h4>
                     <AccountFormAccountId
-                        formLoader={formLoader}
+                        mainLoader={mainLoader}
                         handleChange={handleChange}
                         checkAvailability={checkAccountAvailable}
                         localAlert={localAlert}
@@ -221,7 +221,7 @@ const LedgerSignInModal = ({
 
                     <FormButton
                         onClick={handleAdditionalAccountId}
-                        disabled={formLoader || !localAlert?.success}
+                        disabled={mainLoader || !localAlert?.success}
                         sending={loader}
                     >
                         <Translate id='button.confirm'/>
