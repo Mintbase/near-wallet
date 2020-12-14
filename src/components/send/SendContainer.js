@@ -6,8 +6,8 @@ import { Translate } from 'react-localize-redux'
 import FormButton from '../common/FormButton'
 import ArrowCircleIcon from '../svg/ArrowCircleIcon'
 import AccountFormAccountId from '../accounts/AccountFormAccountId'
-import { checkAccountAvailable, clear, sendMoney, refreshAccount } from '../../actions/account'
-import { setMainLoader } from '../../actions/status'
+import { checkAccountAvailable, sendMoney, refreshAccount } from '../../actions/account'
+import { setMainLoader, clearLocalAlert } from '../../actions/status'
 import BalanceBreakdown from '../staking/components/BalanceBreakdown'
 import BN from 'bn.js'
 import { utils } from 'near-api-js'
@@ -126,7 +126,7 @@ export function SendContainer({ match }) {
                     localAlert={localAlert}
                     autoFocus={false}
                     setMainLoader={() => dispatch(setMainLoader())}
-                    clearLocalAlert={() => dispatch(clear())}
+                    clearLocalAlert={() => dispatch(clearLocalAlert())}
                     stateAccountId={accountId}
                 />
                 <FormButton onClick={handleConfirm} disabled={!sendAllowed}>
