@@ -182,7 +182,6 @@ export const {
     checkNewAccount,
     createNewAccount,
     checkAccountAvailable,
-    clear,
     clearCode
 } = createActions({
     INITIALIZE_RECOVERY_METHOD: [
@@ -283,7 +282,6 @@ export const {
         wallet.checkAccountAvailable.bind(wallet),
         () => showAlert({ localAlert: true })
     ],
-    CLEAR: null,
     CLEAR_CODE: null
 })
 
