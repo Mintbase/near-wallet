@@ -158,10 +158,6 @@ const account = handleActions({
     [resetAccounts]: (state) => ({
         ...state,
         loginResetAccounts: true
-    }),
-    [setFormLoader]: (state, { payload }) => ({
-        ...state,
-        formLoader: payload
     })
 }, initialState)
 
