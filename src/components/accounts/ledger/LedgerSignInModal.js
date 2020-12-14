@@ -157,7 +157,7 @@ const LedgerSignInModal = ({
     handleChange, 
     checkAccountAvailable, 
     localAlert, 
-    setFormLoader, 
+    setMainLoader, 
     mainLoader, 
     clearLocalAlert, 
     stateAccountId, 
@@ -213,7 +213,7 @@ const LedgerSignInModal = ({
                         checkAvailability={checkAccountAvailable}
                         localAlert={localAlert}
                         autoFocus={true}
-                        setFormLoader={setFormLoader}
+                        setMainLoader={setMainLoader}
                         clearLocalAlert={clearLocalAlert}
                         stateAccountId={stateAccountId}
                     />
