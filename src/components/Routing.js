@@ -11,8 +11,7 @@ import translations_ru from '../translations/ru.global.json'
 import translations_zh_hans from '../translations/zh-hans.global.json'
 import translations_zh_hant from '../translations/zh-hant.global.json'
 import ScrollToTop from '../utils/ScrollToTop'
-import GlobalAlert from './responsive/GlobalAlert'
-import GlobalAlertNew from './common/GlobalAlertNew'
+import GlobalAlert from './common/GlobalAlert'
 import '../index.css'
 import Navigation from './navigation/Navigation'
 import Footer from './common/Footer'
@@ -161,7 +160,6 @@ class Routing extends Component {
                         />
                         <Navigation/>
                         <GlobalAlert/>
-                        <GlobalAlertNew/>
                         <LedgerConfirmActionModal/>
                         { 
                             this.props.account.requestPending !== null &&
