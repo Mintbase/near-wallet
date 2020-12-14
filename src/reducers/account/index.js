@@ -45,19 +45,6 @@ const initialState = {
     ledgerKey: null
 }
 
-const loaderReducer = (state, { type, ready }) => {
-    if (typeof ready === 'undefined') {
-        return state
-    }
-
-    const actionsPending = !ready ? [...state.actionsPending, type] : state.actionsPending.slice(0, -1)
-    return { 
-        ...state, 
-        formLoader: !!actionsPending.length,
-        actionsPending
-    }
-}
-
 const recoverCodeReducer = handleActions({
     [requestCode]: (state, { error, ready }) => {
         if (ready && !error) {
@@ -147,7 +134,6 @@ const account = handleActions({
 
 export default reduceReducers(
     initialState,
-    loaderReducer,
     recoverCodeReducer,
     accessKeys,
     account,
