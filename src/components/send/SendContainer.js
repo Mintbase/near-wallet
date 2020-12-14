@@ -118,7 +118,7 @@ export function SendContainer({ match }) {
                 <ArrowCircleIcon color={sendAllowed ? '#6AD1E3' : ''}/>
                 <h4><Translate id='sendMoney.account.title' /></h4>
                 <AccountFormAccountId
-                    formLoader={formLoader || false}
+                    mainLoader={mainLoader || false}
                     handleChange={(e, { value }) => setId(value)}
                     defaultAccountId={id}
                     checkAvailability={() => dispatch(checkAccountAvailable(id))}
@@ -135,7 +135,7 @@ export function SendContainer({ match }) {
                     <SendConfirmModal
                         onClose={() => setConfirm(false)}
                         onConfirm={handleSend}
-                        loading={formLoader}
+                        loading={mainLoader}
                         receiver={id}
                         amount={amount}
                     />
