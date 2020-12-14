@@ -11,10 +11,10 @@ import {
     redirectToApp, 
     refreshAccount, 
     signInWithLedgerAddAndSaveAccounts, 
-    checkAccountAvailable, 
-    setFormLoader, 
+    checkAccountAvailable,
     clearSignInWithLedgerModalState
 } from '../../../actions/account';
+import { setMainLoader } from '../../../actions/status'
 import LocalAlertBox from '../../common/LocalAlertBox'
 import { controller as controllerHelperApi } from '../../../utils/helper-api'
 import { showCustomAlert } from '../../../actions/status'
@@ -112,7 +112,7 @@ export function SignInLedger(props) {
                     handleChange={handleChange}
                     localAlert={status.localAlert}
                     checkAccountAvailable={(accountId) => dispatch(checkAccountAvailable(accountId))}
-                    setFormLoader={(state) => dispatch(setFormLoader(state))}
+                    setMainLoader={(state) => dispatch(setMainLoader(state))}
                     mainLoader={status.mainLoader}
                     clearLocalAlert={() => dispatch(clear())}
                     stateAccountId={account.accountId}
