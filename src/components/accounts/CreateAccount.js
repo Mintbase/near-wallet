@@ -3,7 +3,8 @@ import styled from 'styled-components'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { Translate } from 'react-localize-redux'
-import { checkNewAccount, createNewAccount, clear, refreshAccount, setFormLoader, checkNearDropBalance } from '../../actions/account'
+import { checkNewAccount, createNewAccount, clear, refreshAccount, checkNearDropBalance } from '../../actions/account'
+import { setMainLoader } from '../../actions/status'
 import { ACCOUNT_ID_SUFFIX } from '../../utils/wallet'
 import Container from '../common/styled/Container.css'
 import BrokenLinkIcon from '../svg/BrokenLinkIcon';
@@ -107,12 +108,12 @@ class CreateAccount extends Component {
     handleCreateAccount = async () => {
         const { accountId } = this.state;
         const { 
-            setFormLoader,
+            setMainLoader,
             fundingContract, fundingKey,
             fundingAccountId,
         } = this.props
 
-        setFormLoader(false)
+        setMainLoader(false)
         this.setState({ loader: true });
 
         let queryString = ''
@@ -129,7 +130,7 @@ class CreateAccount extends Component {
 
     render() {
         const { loader, accountId, invalidNearDrop } = this.state
-        const { localAlert, mainLoader, checkNewAccount, resetAccount, clear, setFormLoader } = this.props
+        const { localAlert, mainLoader, checkNewAccount, resetAccount, clear, setMainLoader } = this.props
         const useLocalAlert = accountId.length > 0 ? localAlert : undefined;
         
         if (!invalidNearDrop) {
@@ -148,7 +149,7 @@ class CreateAccount extends Component {
                             localAlert={useLocalAlert}
                             accountId={accountId}
                             clearLocalAlert={clear}
-                            setFormLoader={setFormLoader}
+                            setMainLoader={setMainLoader}
                             defaultAccountId={resetAccount && resetAccount.accountIdNotConfirmed.split('.')[0]}
                         />
                         <AccountNote/>
@@ -186,7 +187,7 @@ const mapDispatchToProps = {
     createNewAccount,
     clear,
     refreshAccount,
-    setFormLoader,
+    setMainLoader,
     checkNearDropBalance
 }
 
