@@ -3,30 +3,15 @@ import reduceReducers from 'reduce-reducers'
 
 import {
     requestCode,
-    setupRecoveryMessage,
     getAccessKeys,
-    clear,
     clearCode,
-    addAccessKey,
-    addAccessKeySeedPhrase,
     promptTwoFactor,
     refreshUrl,
     refreshAccount,
     resetAccounts,
-    setFormLoader,
-    deleteRecoveryMethod,
-    recoverAccountSeedPhrase,
-    removeAccessKey,
-    deployMultisig,
     checkCanEnableTwoFactor,
     get2faMethod,
-    getLedgerKey,
-    sendMoney,
-    saveAndSelectLedgerAccounts,
-    signAndSendTransactions,
-    addLedgerAccessKey,
-    addLedgerAccountId,
-    createAccountWithSeedPhrase
+    getLedgerKey
 } from '../../actions/account'
 
 import {
